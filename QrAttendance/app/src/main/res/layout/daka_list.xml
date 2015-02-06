@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffcccccc"
+    android:orientation="vertical">
+
+
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00ff00"
+            android:stretchColumns="*"
+            >
+            <TableRow
+                android:background="#00ff00">
+                <TextView
+                    android:id="@+id/list_item_gonghao"
+                    android:gravity="center"
+                    android:layout_margin="2dip"
+                    android:background="#ffcccccc"
+                    android:layout_width="120dp"
+                    android:text="工号"
+                    android:textSize="20dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/list_item_name"
+                    android:layout_margin="2dip"
+                    android:background="#ffcccccc"
+                    android:layout_width="80dp"
+                    android:gravity="center"
+                    android:text="姓名"
+                    android:textSize="20dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/list_item_riqi"
+                    android:layout_margin="2dip"
+                    android:background="#ffcccccc"
+                    android:layout_width="100dp"
+                    android:gravity="center"
+                    android:text="日期"
+                    android:textSize="20dip"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/list_item_shangban"
+                    android:layout_margin="2dip"
+                    android:background="#ffcccccc"
+                    android:layout_width="100dp"
+                    android:gravity="center"
+                    android:text="上班"
+                    android:textSize="20dip"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/list_item_xiaban"
+                    android:layout_margin="2dip"
+                    android:background="#ffcccccc"
+                    android:layout_width="100dp"
+                    android:gravity="center"
+                    android:text="下班"
+                    android:textSize="20dip"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+
+
+</LinearLayout>
