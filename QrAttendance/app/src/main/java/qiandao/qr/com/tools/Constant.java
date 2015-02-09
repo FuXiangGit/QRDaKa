@@ -5,5 +5,5 @@ package qiandao.qr.com.tools;
  */
 public class Constant {
 //    public static final String path="http://192.168.7.31:8080/";
-    public static final String path="http://192.168.7.37/";
+    public static final String path="http://192.168.2.120/";
 }

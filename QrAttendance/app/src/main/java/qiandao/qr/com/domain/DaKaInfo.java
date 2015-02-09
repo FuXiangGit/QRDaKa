@@ -9,13 +9,15 @@ public class DaKaInfo {
     private String riqi;
     private String shangxiatime;
     private String isshangban;
+    private String attendType;
 
-    public DaKaInfo(String gonghao, String name, String riqi, String shangxiatime, String isshangban) {
+    public DaKaInfo(String gonghao, String name, String riqi, String shangxiatime, String isshangban, String attendType) {
         this.gonghao = gonghao;
         this.name = name;
         this.riqi = riqi;
         this.shangxiatime = shangxiatime;
         this.isshangban = isshangban;
+        this.attendType = attendType;
     }
 
     public String getGonghao() {
@@ -56,5 +58,13 @@ public class DaKaInfo {
 
     public void setIsshangban(String isshangban) {
         this.isshangban = isshangban;
+    }
+
+    public String getAttendType() {
+        return attendType;
+    }
+
+    public void setAttendType(String attendType) {
+        this.attendType = attendType;
     }
 }

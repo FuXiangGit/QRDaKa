@@ -5,87 +5,131 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="qiandao.qr.com.qrattendance.SeacherActivity">
 
+    <LinearLayout
+        android:id="@+id/gonghaoname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dip"
+            android:gravity="center"
+            android:text="工号:"
+            android:textSize="20dip"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ugonghao"
+            android:layout_width="120dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dip"
+            android:gravity="center"
+            android:text=""
+            android:textSize="20dip"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dip"
+            android:gravity="center"
+            android:text="姓名:"
+            android:textSize="20dip"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/uname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dip"
+            android:gravity="center"
+            android:text=""
+            android:textSize="20dip"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/kaoqin_head_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/gonghaoname"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:text="考勤统计"
         android:textSize="36sp" />
 
-    <HorizontalScrollView
-        android:layout_width="fill_parent"
+    <LinearLayout
+
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/kaoqin_head_txt">
+        android:layout_below="@+id/kaoqin_head_txt"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00ff00"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <!--<TextView
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:background="#00ff00"
-                android:orientation="horizontal">
+                android:layout_margin="2dip"
+                android:background="#ffcccccc"
+                android:gravity="center"
+                android:text="工号"
+                android:textSize="20dip"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dip"
-                    android:background="#ffcccccc"
-                    android:gravity="center"
-                    android:text="工号"
-                    android:textSize="20dip"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dip"
+                android:background="#ffcccccc"
+                android:gravity="center"
+                android:text="姓名"
+                android:textSize="20dip"
+                android:textStyle="bold" />-->
 
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dip"
-                    android:background="#ffcccccc"
-                    android:gravity="center"
-                    android:text="姓名"
-                    android:textSize="20dip"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dip"
+                android:background="#ffcccccc"
+                android:gravity="center"
+                android:text="日期"
+                android:textSize="20dip"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dip"
-                    android:background="#ffcccccc"
-                    android:gravity="center"
-                    android:text="日期"
-                    android:textSize="20dip"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dip"
+                android:background="#ffcccccc"
+                android:gravity="center"
+                android:text="时间"
+                android:textSize="20dip"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dip"
-                    android:background="#ffcccccc"
-                    android:gravity="center"
-                    android:text="上班"
-                    android:textSize="20dip"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dip"
-                    android:background="#ffcccccc"
-                    android:gravity="center"
-                    android:text="下班"
-                    android:textSize="20dip"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <ListView
-                android:id="@+id/list_kaoqing"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dip"
+                android:background="#ffcccccc"
+                android:gravity="center"
+                android:text="打卡类型"
+                android:textSize="20dip"
+                android:textStyle="bold" />
         </LinearLayout>
-    </HorizontalScrollView>
+
+        <ListView
+            android:id="@+id/list_kaoqing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"></ListView>
+    </LinearLayout>
 
 </RelativeLayout>

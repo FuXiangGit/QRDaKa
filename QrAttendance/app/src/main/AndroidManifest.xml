@@ -54,6 +54,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
+            android:launchMode="singleTask"
             android:parentActivityName="android.support.v7.app.ActionBarActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -89,7 +90,7 @@
         <!-- 百度地图 - meta-data需要写在application中 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="hfhKRZk9tfEK2ygnAB6m4r7O" />
+            android:value="no44TfxtgfZ0efRReHog9UDy" />
 
         <activity android:name="com.dingwei.location.LocationActivity" />
         <activity

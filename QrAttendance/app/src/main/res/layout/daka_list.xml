@@ -15,7 +15,7 @@
             >
             <TableRow
                 android:background="#00ff00">
-                <TextView
+               <!-- <TextView
                     android:id="@+id/list_item_gonghao"
                     android:gravity="center"
                     android:layout_margin="2dip"
@@ -33,13 +33,13 @@
                     android:gravity="center"
                     android:text="姓名"
                     android:textSize="20dip"
-                    android:textStyle="bold" />
+                    android:textStyle="bold" />-->
 
                 <TextView
                     android:id="@+id/list_item_riqi"
                     android:layout_margin="2dip"
                     android:background="#ffcccccc"
-                    android:layout_width="100dp"
+                    android:layout_width="110dp"
                     android:gravity="center"
                     android:text="日期"
                     android:textSize="20dip"
@@ -48,18 +48,18 @@
                     android:id="@+id/list_item_shangban"
                     android:layout_margin="2dip"
                     android:background="#ffcccccc"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:gravity="center"
-                    android:text="上班"
+                    android:text="时间"
                     android:textSize="20dip"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/list_item_xiaban"
                     android:layout_margin="2dip"
                     android:background="#ffcccccc"
-                    android:layout_width="100dp"
+                    android:layout_width="110dp"
                     android:gravity="center"
-                    android:text="下班"
+                    android:text="打卡类型"
                     android:textSize="20dip"
                     android:textStyle="bold" />
             </TableRow>

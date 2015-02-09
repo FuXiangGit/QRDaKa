@@ -110,8 +110,12 @@ public class RegisterActivity extends ActionBarActivity {
                             String uGongHao = userJson.optString("attr5");
                             User user = new User(uID,uName,uPhone,uGongHao,truepass,"1");
                             Log.d("jack", user.toString());
-                            SharedPreferenceStorage.saveLoginUserInfo(
-                                    RegisterActivity.this, user);
+                            try {
+                                SharedPreferenceStorage.saveLoginUserInfo(
+                                        RegisterActivity.this, user);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                             Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
                             startActivity(intent);
                         } else {

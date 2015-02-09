@@ -36,6 +36,7 @@ import com.squareup.timessquare.CalendarPickerView;
 import com.zxing.activity.CaptureActivity;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -58,7 +59,8 @@ public class MainActivity extends ActionBarActivity {
 
     @ViewInject(R.id.qr_return)
     public TextView qr_return;
-
+    @ViewInject(R.id.user_task)
+    private TextView user_task;
     //时间
     private static final int msgKey1 = 1;
     @ViewInject(R.id.mytime)
@@ -315,6 +317,8 @@ public class MainActivity extends ActionBarActivity {
         if (!mLocationClient.isStarted()) {
             mLocationClient.start();
         }
+        //再次登录验证
+        isLogin();
     }
 
     //主界面时间显示方法
@@ -389,6 +393,8 @@ public class MainActivity extends ActionBarActivity {
                 Log.d("jack", res);
                 JSONObject jsonObject = null;
                 JSONObject userJson = null;
+                JSONArray obj2List = null;
+                JSONObject jsonObj2 = null;
                 try {
                     jsonObject = new JSONObject(res);
                     int isSuccess = jsonObject.optInt("retcode");
@@ -400,8 +406,20 @@ public class MainActivity extends ActionBarActivity {
                         String uGongHao = userJson.optString("attr5");
                         User user = new User(uID, uName, uPhone, uGongHao, loginPass, "1");
                         Log.d("jack", user.toString());
-                        SharedPreferenceStorage.saveLoginUserInfo(
-                                MainActivity.this, user);
+                        try {
+                            SharedPreferenceStorage.saveLoginUserInfo(
+                                    MainActivity.this, user);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        //返回的值
+                        obj2List = jsonObject.getJSONArray("obj2");
+                        String strTask = "";
+                        for(int i = 0;i<obj2List.length();i++){
+                            strTask = strTask+obj2List.getString(i)+"\n";
+                            Log.d("jack",obj2List.getString(i));
+                        }
+                        user_task.setText(strTask);
                     } else {
                         Toast.makeText(MainActivity.this, "链接失败或者密码修改，请重新登陆！", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(MainActivity.this, LoginActivity.class);

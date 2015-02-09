@@ -46,8 +46,8 @@ public class SeachAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.daka_list,null);
             holder = new ViewHolder();
-            holder.list_item_gonghao = (TextView) convertView.findViewById(R.id.list_item_gonghao);
-            holder.list_item_name = (TextView) convertView.findViewById(R.id.list_item_name);
+//            holder.list_item_gonghao = (TextView) convertView.findViewById(R.id.list_item_gonghao);
+//            holder.list_item_name = (TextView) convertView.findViewById(R.id.list_item_name);
             holder.list_item_riqi = (TextView) convertView.findViewById(R.id.list_item_riqi);
             holder.list_item_shangban = (TextView) convertView.findViewById(R.id.list_item_shangban);
             holder.list_item_xiaban = (TextView) convertView.findViewById(R.id.list_item_xiaban);
@@ -55,13 +55,15 @@ public class SeachAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.list_item_gonghao.setText(dakaList.get(position).getGonghao());
-        holder.list_item_name.setText(dakaList.get(position).getName());
+//        holder.list_item_gonghao.setText(dakaList.get(position).getGonghao());
+//        holder.list_item_name.setText(dakaList.get(position).getName());
         holder.list_item_riqi.setText(dakaList.get(position).getRiqi());
-        if(dakaList.get(position).getIsshangban().equals("0")) {
-            holder.list_item_shangban.setText(dakaList.get(position).getShangxiatime());
+        //时间
+        holder.list_item_shangban.setText(dakaList.get(position).getShangxiatime());
+        if(dakaList.get(position).getAttendType().equals("0")) {
+            holder.list_item_xiaban.setText("打卡");
         }else {
-            holder.list_item_xiaban.setText(dakaList.get(position).getShangxiatime());
+            holder.list_item_xiaban.setText("拍照");
         }
 
         return convertView;

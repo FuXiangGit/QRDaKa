@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lidroid.xutils.HttpUtils;
@@ -21,6 +22,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,10 @@ import qiandao.qr.com.tools.Constant;
 
 public class SeacherActivity extends ActionBarActivity {
 
+    @ViewInject(R.id.ugonghao)
+    private TextView ugonghao;
+    @ViewInject(R.id.uname)
+    private TextView uname;
     @ViewInject(R.id.list_kaoqing)
     ListView list_kaoqing;
     ArrayList<DaKaInfo> dakaList = new ArrayList<DaKaInfo>();
@@ -49,6 +55,8 @@ public class SeacherActivity extends ActionBarActivity {
         User user = SharedPreferenceStorage.getLoginUser(this);
         gonghao = user.getGonghao();
         name = user.getUsername();
+        ugonghao.setText(gonghao);
+        uname.setText(name);
         initList();
     }
 
@@ -57,10 +65,10 @@ public class SeacherActivity extends ActionBarActivity {
         HttpUtils http = new HttpUtils();
         RequestParams params = new RequestParams();
         params.addBodyParameter("gonghao", gonghao);
-        http.send(HttpRequest.HttpMethod.POST, url, new RequestCallBack<Object>() {
+        http.send(HttpRequest.HttpMethod.POST, url,params, new RequestCallBack<Object>() {
             @Override
             public void onStart() {
-                Log.d("jack", "开始上传" + url);
+                Log.d("jack", "开始上传" + url+"工号"+gonghao);
             }
             @Override
             public void onSuccess(ResponseInfo<Object> objectResponseInfo) {
@@ -77,8 +85,11 @@ public class SeacherActivity extends ActionBarActivity {
                         String dakatime = userJson.getString("cardTime");
                         //onoff ：0上班 ，1下班
                         String onoff = userJson.getString("onOff");
+                        //attendType ：0打卡1拍照
+                        String attendType  = userJson.getString("attendType");
+
                         Log.d("jack",riqi+"------"+dakatime+"-----"+onoff);
-                        DaKaInfo daKaInfo = new DaKaInfo(gonghao,name,riqi,dakatime,onoff);
+                        DaKaInfo daKaInfo = new DaKaInfo(gonghao,name,riqi,dakatime,onoff,attendType);
                         dakaList.add(daKaInfo);
                     }
                     SeachAdapter seachAdapter = new SeachAdapter(context,dakaList);
